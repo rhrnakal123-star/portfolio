@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #111;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  /* 화면 너비 초과 시 가로 스크롤 제거 */
+}
+
+
+
+
+
+
+.logo img {
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+/* 페이지 타이틀 섹션 */
+.page-title-section {
+  text-align: center;
+}
+
+.sub-logo {
+  font-weight: 400;
+  font-size: 15px;
+  color: #111;
+}
+
+.page-main-title {
+  font-weight: bold;
+  font-size: 30px;
+  color: #111;
+}
+
+.title-divider {
+  width: 1224px;
+  height: 1px;
+  background-color: #999;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+/* 뉴스 리스트 섹션 */
+.news-list-section {
+  margin-top: 150px;
+}
+
+.news-list-inner {
+  width: 1224px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 150px; /* 뉴스 아이템 간 세로 간격 */
+  padding-bottom: 232.5px; /* 첫 번째 이미지 기준 푸터 간격 */
+}
+
+.news-item {
+  width: 1010px;            /* ✅ 전체 콘텐츠 폭 (1920 - 455*2) */
+  margin: 0 auto;           /* ✅ 가운데 정렬 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ✅ 이미지 왼쪽, 텍스트 오른쪽 배치 */
+}
+
+
+
+.item-img-wrap img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 텍스트 박스 */
+.item-text-wrap {
+  width: 299px;    /* ✅ 텍스트 폭 고정 → 줄 자동정렬 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.item-text-wrap .name {
+  font-weight: 700;
+  font-size: 25px;
+  margin-bottom: 20px;
+  text-align: center; /* ← 이름 텍스트 중앙 */
+}
+
+.detail-line {
+  font-weight: 500;
+  font-size: 17px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 20px; /* ← 문단 간 엔터 효과 */
+  text-align: center; /* ← 내용도 중앙 정렬 */
+}

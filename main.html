@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지 리뉴얼</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- 플레이 버튼에 Font Awesome 아이콘을 사용하므로 그대로 유지합니다. -->
+    <script src="https://kit.fontawesome.com/71df77a7d7.js" crossorigin="anonymous"></script>
+
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <!-- 로고: 이미지 사용 구조 -->
+            <div class="logo"><img src="img/logo.png" alt="ShowPLAY 로고"></div>
+            <nav class="menu">
+                <ul>
+                    <li class="close-btn">✕</li>
+                    <li><a href="#">ARTIST</a></li>
+                    <li><a href="#">ACTOR</a></li>
+                    <li><a href="#">NEWS</a></li>
+                </ul>
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div> <!-- ✅ 누락된 닫는 태그 추가 -->
+    </header>
+
+    <!-- 아티스트 카드 -->
+    <section class="artist-section">
+        <!-- 일반 텍스트 화살표 (폰트 어썸 X) -->
+        <span class="arrow left">◀</span>
+        <div class="artist-cards">
+            <div class="artist-card">
+                <div class="artist-img"><img src="img/main남승민.webp" alt="남승민"></div>
+                <div class="artist-info">
+                    <p class="profile">프로필 <span class="more">더보기</span></p>
+                    <p class="artist-name"><strong class="role">가 수</strong><span class="name"> : 남승민</span></p>
+                    <p class="activity">
+                        최근 활동 : <span class="activity-line">미스터트롯3 - 전국투어 콘서트,</span><br>
+                        <span class="activity-line indent">예능 - 사랑의 콜센타 세븐스타즈</span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="artist-card">
+                <div class="artist-img"><img src="img/main천지원.jpg" alt="천지원"></div>
+                <div class="artist-info">
+                    <p class="profile">프로필 <span class="more">더보기</span></p>
+                    <p class="artist-name"><strong class="role">가 수</strong><span class="name"> : 천지원</span></p>
+                    <p class="activity">
+                        최근 활동 : <span class="activity-line">&lt;언더커버&gt; 커버곡 앨범 발매,</span><br>
+                        <span class="activity-line indent">0교시는 인싸타임 OST Part.6</span>
+                    </p>
+                </div>
+            </div>
+            <div class="artist-card">
+                <div class="artist-img"><img src="img/main정동원.jpg" alt="정동원"></div>
+                <div class="artist-info">
+                    <p class="profile">프로필 <span class="more">더보기</span></p>
+                    <p class="artist-name"><strong class="role">가 수</strong><span class="name"> : 정동원</span></p>
+                    <p class="activity">
+                        최근 활동 : <span class="activity-line">전국투어 콘서트,</span><br>
+                        <span class="activity-line indent">디지털싱글앨범발매</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 일반 텍스트 화살표 (폰트 어썸 X) -->
+        <span class="arrow right">▶</span>
+    </section>
+
+    <section class="video-section">
+        <div class="video-container" data-video="https://www.youtube.com/embed/SUmiSDKKsv8?si=XXqaR09mhixICCy-">
+            <img src="img/Rectangle 1.png" alt="영상 썸네일" class="thumbnail">
+            <p class="video-title">[MV] JEONG DONG WON(정동원) _ Heung!(흥!) (Feat. HAON(김하온))</p>
+            <div class="play-btn"><span class="triangle">▶</span></div>
+        </div>
+    </section>
+
+
+    <!-- 두 번째 아티스트 카드 -->
+    <section class="artist-section second">
+        <div class="artist-cards">
+            <div class="artist-card">
+                <div class="artist-img"><img src="img/main김재한.jpg" alt="김재한"></div>
+                <div class="artist-info">
+                    <p class="profile">프로필 <span class="more">더보기</span></p>
+                    <p class="artist-name"><strong class="role">뮤지컬 배우</strong><span class="name"> : 김재한</span></p>
+                    <p class="activity">
+                        최근 활동 : <span class="activity-line">뮤지컬 - 베어 더 뮤지컬,</span><br>
+                        <span class="activity-line indent">뮤지컬 - 조선의 복서</span>
+                    </p>
+                </div>
+            </div>
+            <div class="artist-card">
+                <div class="artist-img"><img src="img/main송유진.webp" alt="송유진"></div>
+                <div class="artist-info">
+                    <p class="profile">프로필 <span class="more">더보기</span></p>
+                    <p class="artist-name"><strong class="role">가수·유튜버</strong><span class="name"> : 송유진</span></p>
+                    <p class="activity">
+                        최근 활동 : <span class="activity-line">신파아파트 - 안녕, 너에게,</span><br>
+                        <span class="activity-line indent">유튜브 - Golden 커버</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="video-section">
+        <div class="video-container" data-video="https://www.youtube.com/embed/wjqBhO1oQ0M?si=BrzSxfDlVGFQ0ipQ">
+            <img src="img/Rectangle 2.png" alt="영상 썸네일" class="thumbnail">
+            <p class="video-title">뮤지컬 [조선의 복서] 트레일러</p>
+            <div class="play-btn"><span class="triangle">▶</span></div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- 푸터 -->
+    <div class="footer-border"></div>
+    <footer class="footer">
+        <div class="footer-inner">
+            <!-- 왼쪽 영역 -->
+            <div class="footer-left">
+                <img src="img/logo.png" alt="ShowPLAY 로고" class="footer-logo" />
+                <p class="address">
+                    서울특별시 강남구 학동로 50길 28, 토미주택 1F 쇼플레이엔터테인먼트 / 1F, 28, Hakdong-ro 50-gil, Gangnam-gu, Seoul, Republic of
+                    Korea
+                </p>
+                <p class="copyright">
+                    Copyright © ShowPLAY ENT All Rights Reserved.
+                </p>
+            </div>
+
+            <div class="footer-right">
+                <div class="location">LOCATION</div>
+                <div class="sns">
+                    <a href="#" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+    </footer>
+
+</body>
+
+</html>

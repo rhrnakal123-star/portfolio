@@ -1,0 +1,139 @@
+.footer-border {
+  width: 1224px;
+  height: 1px;
+  background: #999;
+  margin: 0 auto;
+  /* 푸터 위쪽 여백 제외하고 위치 기준으로 */
+}
+
+.footer {
+  width: 100%;
+  padding: 30px 0 0;
+  /* 아래 여백 100px */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  padding-bottom: 0 !important; /* 내부 여백 제거 */
+}
+
+.footer-inner {
+  width: 1224px;
+  display: flex;
+  justify-content: space-between;
+  /* 좌우 정렬 */
+  align-items: flex-start;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 132px;
+  height: 35px;
+  margin-bottom: 41px;
+  /* 로고 아래 주소까지 간격 */
+  cursor: pointer;
+}
+
+.address {
+  font-size: 15px;
+  color: #111;
+}
+
+.copyright {
+  font-size: 15px;
+  color: #666;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-right .location {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+}
+
+.footer-right .sns {
+  display: flex;
+  gap: 20px;
+  font-size: 22px;
+  margin-top: 69px;
+  /* LOCATION 아래 아이콘 간격 */
+}
+
+.footer-right .sns a:hover {
+  color: #007bff;
+}
+
+
+
+
+
+
+/* ✅ SNS 아이콘 크기, 색상, 간격 설정 */
+.footer-right .sns a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #111; /* 기본 색상 */
+}
+
+/* 인스타그램 아이콘 */
+.footer-right .sns a.instagram i {
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  color: #111;
+}
+
+/* 유튜브 아이콘 */
+.footer-right .sns a.youtube i {
+  width: 36px;
+  height: 25px;
+  font-size: 25px;
+  color: #111;
+}
+
+/* 아이콘 사이 간격 */
+.footer-right .sns {
+  display: flex;
+  gap: 50px; /* ✅ 요청한 간격 */
+}
+
+
+
+
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    align-items: center;
+  }
+
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+
+  .footer-right .sns {
+    margin-top: 20px;
+  }
+
+  .address {
+    margin: 20px 0;
+  }
+}
