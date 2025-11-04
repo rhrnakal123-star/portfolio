@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인 페이지 리뉴얼</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- 플레이 버튼에 Font Awesome 아이콘을 사용하므로 그대로 유지합니다. -->
     <script src="https://kit.fontawesome.com/71df77a7d7.js" crossorigin="anonymous"></script>
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
 
-    <script src="js/common.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
     <script src="js/main.js"></script>
 
 </head>
@@ -24,22 +23,31 @@
 
     <header class="header">
         <div class="header-inner">
-            <!-- 로고: 이미지 사용 구조 -->
-            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="ShowPLAY 로고"></a></div>
-            <nav class="menu">
-                <ul>
-                    <li class="close-btn">✕</li>
-                    <li><a href="#">ARTIST</a></li>
-                    <li><a href="#">ACTOR</a></li>
-                    <li><a href="sub.html">NEWS</a></li>
-                </ul>
+
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="ShowPLAY 로고"></a>
+            </div>
+
+            <div class="header-right">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#">ARTIST</a></li>
+                        <li><a href="#">ACTOR</a></li>
+                        <li><a href="sub.html">NEWS</a></li>
+
+                    </ul>
+                </nav>
+
                 <div class="menu-icon">
                     <span></span>
                     <span></span>
                 </div>
-            </nav>
-        </div> <!-- ✅ 누락된 닫는 태그 추가 -->
+            </div>
+
+        </div>
     </header>
+
+
 
     <!-- 아티스트 카드 -->
     <section class="artist-section">
@@ -141,7 +149,10 @@
         <div class="footer-inner">
             <!-- 왼쪽 영역 -->
             <div class="footer-left">
-                <img src="img/logo.png" alt="ShowPLAY 로고" class="footer-logo" />
+                <a href="index.html">
+                    <img src="img/logo.png" alt="ShowPLAY 로고" class="footer-logo" />
+                </a>
+
                 <p class="address">
                     서울특별시 강남구 학동로 50길 28, 토미주택 1F 쇼플레이엔터테인먼트 / 1F, 28, Hakdong-ro 50-gil, Gangnam-gu, Seoul, Republic of
                     Korea
@@ -159,7 +170,7 @@
                 </div>
             </div>
     </footer>
-
+    <script src="js/common.js"></script>
 </body>
 
 </html>

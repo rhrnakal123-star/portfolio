@@ -6,17 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>서브 페이지 리뉴얼</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-  <!-- 플레이 버튼에 Font Awesome 아이콘을 사용하므로 그대로 유지합니다. -->
   <script src="https://kit.fontawesome.com/71df77a7d7.js" crossorigin="anonymous"></script>
 
   <link href="css/sub.css" rel="stylesheet">
   <link href="css/footer.css" rel="stylesheet">
   <link href="css/header.css" rel="stylesheet">
 
-  <script src="js/common.js"></script>
-  <script src="js/news.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
 
 </head>
 
@@ -26,20 +24,31 @@
 
   <header class="header">
     <div class="header-inner">
-      <h1 class="logo"><a href="index.html"><img src="img/logo.png" alt="ShowPLAY 로고"></a></h1>
-      <nav class="menu">
-        <ul>
-          <li><a href="#">ARTIST</a></li>
-          <li><a href="#">ACTOR</a></li>
-          <li class="active"><a href="sub.html">NEWS</a></li>
-        </ul>
+
+      <div class="logo">
+        <a href="index.html"><img src="img/logo.png" alt="ShowPLAY 로고"></a>
+      </div>
+
+      <div class="header-right">
+        <nav class="menu">
+          <ul>
+            <li><a href="#">ARTIST</a></li>
+            <li><a href="#">ACTOR</a></li>
+            <li><a href="sub.html">NEWS</a></li>
+
+          </ul>
+        </nav>
+
         <div class="menu-icon">
           <span></span>
           <span></span>
         </div>
-      </nav>
+      </div>
+
     </div>
   </header>
+
+
 
   <main class="main-content">
     <section class="page-title-section">
@@ -72,8 +81,8 @@
           <div class="item-text-wrap">
             <h3 class="name">남승민</h3>
 
-              <p class="detail-line">전역후 '사랑의 콜센타 - 세븐 스타즈' 출연</p>
-              <p class="detail-line">TV조선의 '사랑의 콜센타'에 출연하여 팬들과의 소통을 이어가고 있음</p>
+            <p class="detail-line">전역후 '사랑의 콜센타 - 세븐 스타즈' 출연</p>
+            <p class="detail-line">TV조선의 '사랑의 콜센타'에 출연하여 팬들과의 소통을 이어가고 있음</p>
 
           </div>
         </article>
@@ -84,9 +93,9 @@
           </div>
           <div class="item-text-wrap">
             <h3 class="name">김재한</h3>
-            
-              <p class="detail-line">'베어 더 뮤지컬' 감정선과 섬세한 연기로<br>관객들에게 호평을 받음</p>
-              <p class="detail-line">조선의 복서에서 복싱을 둘러싼 갈등과<br> 진실을 추적하는 인물을 연기해서<br>관객들에게 깊은 인상을 남김</p>
+
+            <p class="detail-line">'베어 더 뮤지컬' 감정선과 섬세한 연기로<br>관객들에게 호평을 받음</p>
+            <p class="detail-line">조선의 복서에서 복싱을 둘러싼 갈등과<br> 진실을 추적하는 인물을 연기해서<br>관객들에게 깊은 인상을 남김</p>
           </div>
         </article>
 
@@ -98,7 +107,10 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <img src="img/logo.png" alt="ShowPLAY 로고" class="footer-logo" />
+        <a href="index.html">
+          <img src="img/logo.png" alt="ShowPLAY 로고" class="footer-logo" />
+        </a>
+
         <p class="address">
           서울특별시 강남구 학동로 50길 28, 토미주택 1F 쇼플레이엔터테인먼트 / 1F, 28, Hakdong-ro 50-gil, Gangnam-gu, Seoul, Republic of
           Korea
@@ -118,7 +130,7 @@
     </div>
   </footer>
 
-
+  <script src="js/common.js"></script>
 </body>
 
 </html>

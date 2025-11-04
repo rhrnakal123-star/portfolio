@@ -1,97 +1,127 @@
 .header {
   width: 100%;
   display: flex;
-  justify-content: center;
-  position: relative;
-  /* ✅ 스크롤해도 같이 안 내려오게 변경 */
-  z-index: 100;
-  margin-top: 100px; /* ✅ 헤더 위 여백 100px */
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  justify-content: center; /* ✅ 푸터처럼 가운데 정렬 */
+  margin-top: 100px;
+  margin-bottom: 150px;
 }
 
-
 .header-inner {
-  width: 1224px;
-  height: 150px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1224px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 100px;
-  /* ✅ 여기서 전체 간격 1조정 */
-  margin-bottom: 150px; /* ✅ 헤더 아래 여백 150px */
 }
 
-/* ✅ 로고 */
+/* 로고 */
 .logo img {
   width: 132px;
   height: 35px;
   cursor: pointer;
-  transition: opacity 0.25s ease;
+  transition: 0.25s ease;
 }
 
-/* ✅ 메뉴 */
-.menu {
+.logo img:hover {
+  opacity: 0.6;
+  transform: scale(1.03);
+}
+
+.header-right {
   display: flex;
   align-items: center;
-  gap: 100px;
-  /* 메뉴와 아이콘 사이 간격 */
+  gap: clamp(40px, 6vw, 100px); /* ✅ 큰 화면 100px → 작은 화면 40px로 자연 감소 */
 }
 
-/* 메뉴 ul 기본 상태 - 전체 화면에서는 가로, 작은 화면에서는 숨김 */
+
+
 .menu ul {
   display: flex;
-  gap: 100px;
-  list-style: none;
-  margin: 0;
+  gap: clamp(40px, 6vw, 100px); /* ✅ 동일하게 부드러운 반응형 간격 */
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
   padding: 0;
-  flex-direction: row;
+  transition: none;
 }
 
 
-.menu ul .close-btn {
-  font-size: 22px;
-  text-align: right;
-  cursor: pointer;
-  padding: 10px;
-  display: none; /* 데스크탑에서는 숨김 */
+.menu ul li {
+  list-style: none;
+}
+
+.menu ul li a.active {
+  color: #EB2222;
+  font-weight: 700;
 }
 
 
 .menu a {
   font-weight: 500;
   color: #111;
-  position: relative;
   font-size: 15px;
+  position: relative;
+  transition: 0.3s; /* ✅ 부드럽게 색 변환 */
 }
 
+.menu a.active {
+  color: #EB2222;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  color: #EB2222;
+}
+
+.menu a.active {
+  color: #EB2222;
+  font-weight: 600;
+}
+
+/* hover underline */
 .menu a::after {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: -5px;
   left: 0;
+  bottom: -5px;
   width: 0;
   height: 2px;
-  background: #3c1ab8;
-  transition: width 0.3s;
+  background-color: #EB2222;
+  transition: 0.3s;
 }
+
+.menu a.active::after {
+  width: 0 !important;
+}
+
 
 .menu a:hover::after {
   width: 100%;
 }
 
-/* 메뉴 아이콘 (2줄) */
+
+.menu li.active a {
+  color: #EB2222;
+  font-weight: 700;
+}
+
+/* ✅ 활성화된 메뉴는 밑줄 제거 (hover 포함) */
+.menu li.active a::after,
+.menu li.active a:hover::after {
+  width: 0 !important;
+}
+
+
 .menu-icon {
   width: 41px;
   height: 10px;
   position: relative;
   cursor: pointer;
-  flex-shrink: 0;
-  display: block;
-  /* 전체 화면에서도 보이게 */
-  transition: all 0.3s ease;
+  display: flex;
+  /* ← 기존: none → 수정 */
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-icon span {
@@ -100,10 +130,9 @@
   width: 100%;
   background: #111;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-/* 두 줄 간격 */
 .menu-icon span:nth-child(1) {
   top: 0;
 }
@@ -112,119 +141,80 @@
   bottom: 0;
 }
 
-/* 클릭 시 X 모양 */
 .menu-icon.active span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 50%;
+  transform: rotate(50deg) translateY(6px);
 }
 
 .menu-icon.active span:nth-child(2) {
-  transform: rotate(-45deg);
-  bottom: 50%;
-}
-
-.menu ul li a {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-/* Hover 시 글자색 */
-.menu ul li a:hover {
-  color: #EB2222;
-}
-
-/* 현재 페이지 (active) */
-.menu ul li.active a {
-  color: #EB2222;
-  font-weight: 700;
-}
-
-/* hover underline animation */
-.menu ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background-color: #EB2222;
-  transition: width 0.3s ease;
-}
-
-.menu ul li a:hover::after,
-.menu ul li.active a::after {
-  width: 100%;
+  transform: rotate(-57deg) translateY(-5px);
 }
 
 
 
-.menu li.active a {
-  color: #EB2222;
-  font-weight: 700;
-  position: relative;
-}
-
-.menu li.active a::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #EB2222;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 작은 화면 메뉴 */
-@media (max-width: 900px) {
-  .menu ul {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .menu ul.open {
-    display: flex;
-  }
-  /* 햄버거 클릭 시 표시 */
-  .menu ul.active {
-    display: flex !important;
-  }
-
-  .menu-icon {
-    display: block;
-    cursor: pointer;
+/* ===========================
+   태블릿 (1024px 이하)
+=========================== */
+@media (max-width: 1024px) {
+  .header-inner {
+    padding: 0 30px;
+    height: 120px;
   }
 
   .menu ul {
-    display: none;
+    gap: 35px;
+  }
+}
+
+/* ===========================
+   모바일 (899px 이하)
+=========================== */
+@media (max-width: 899px) {
+
+  .menu ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
     flex-direction: column;
     background: #fff;
-    position: fixed;
-    top: 100px;
-    right: 0;
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    width: 280px;
+    height: 100vh;
+    padding: 120px 40px;
+    gap: 30px;
+    transition: right 0.4s ease;
+    z-index: 999;
   }
 
+  /* 슬라이드 열린 상태 */
   .menu ul.active {
-    display: flex;
+    right: 0;
+  }
+
+  .header-inner {
+    padding: 0 20px;
+  }
+}
+
+
+/* ===========================
+   매우 작은 화면 (430px 이하)
+=========================== */
+@media (max-width: 430px) {
+
+  .header-inner {
+    height: 100px;
+  }
+
+  .menu ul {
+    width: 230px;
+    padding: 100px 30px;
+    gap: 25px;
+  }
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  .logo img {
+    width: 115px;
   }
 }

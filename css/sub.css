@@ -70,40 +70,55 @@ body {
 }
 
 .news-list-inner {
-  width: 1224px;
+  width: 100%;
+  max-width: 1224px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 150px; /* 뉴스 아이템 간 세로 간격 */
-  padding-bottom: 232.5px; /* 첫 번째 이미지 기준 푸터 간격 */
+  gap: 150px;
+  padding-bottom: 232.5px;
 }
 
+
 .news-item {
-  width: 1010px;            /* ✅ 전체 콘텐츠 폭 (1920 - 455*2) */
-  margin: 0 auto;           /* ✅ 가운데 정렬 */
+  width: 100%;
+  max-width: 1010px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* ✅ 이미지 왼쪽, 텍스트 오른쪽 배치 */
+  justify-content: space-between;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  flex-wrap: wrap; /* ✅ 너비 부족 시 자동 줄바꿈 */
 }
+
+
+.news-item:hover .item-img-wrap img {
+  transform: scale(1.03);
+}
+
+
+
 
 
 
 .item-img-wrap img {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  max-width: 500px; /* ✅ 최대 500px 유지, 줄어들 때는 자동 */
+  height: auto; /* ✅ 비율 유지하며 자동 줄어듦 */
   object-fit: cover;
-  display: block;
+  transition: transform 0.35s ease;
+  border-radius: 8px;
 }
 
-/* 텍스트 박스 */
+
 .item-text-wrap {
-  width: 299px;    /* ✅ 텍스트 폭 고정 → 줄 자동정렬 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 299px;
   text-align: center;
+  transition: color 0.3s ease;
 }
+
 
 .item-text-wrap .name {
   font-weight: 700;
@@ -119,4 +134,43 @@ body {
   line-height: 1.7;
   margin-bottom: 20px; /* ← 문단 간 엔터 효과 */
   text-align: center; /* ← 내용도 중앙 정렬 */
+}
+
+
+
+
+
+
+
+/* ✅ 반응형 */
+@media (max-width: 1200px) {
+  .news-item {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .news-item {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .item-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+
+  .item-text-wrap {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .item-text-wrap .name {
+    font-size: 21px;
+  }
+
+  .detail-line {
+    font-size: 15px;
+  }
 }
