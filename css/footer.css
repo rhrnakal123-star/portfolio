@@ -1,6 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #111;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  /* 화면 너비 초과 시 가로 스크롤 제거 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .footer {
   width: 100%;
-  padding: 0 0 100px; /* ✅ 위 30px, 아래 넉넉히 100px */
+  padding: 0 0 100px;
+  /* ✅ 위 30px, 아래 넉넉히 100px */
   display: flex;
   justify-content: center;
 }
@@ -10,7 +47,8 @@
   height: 1px;
   background: #999;
   margin: 0 auto;
-  margin-bottom: 30px; /* ✅ 아래 푸터와 간격 */
+  margin-bottom: 30px;
+  /* ✅ 아래 푸터와 간격 */
 }
 
 .footer-inner {
@@ -36,7 +74,8 @@
 
 .footer-logo:hover {
   opacity: 0.6;
-  transform: scale(1.03); /* 살짝 확대 효과 (부드럽고 세련됨) */
+  transform: scale(1.03);
+  /* 살짝 확대 효과 (부드럽고 세련됨) */
 }
 
 .address {
@@ -78,7 +117,8 @@
 /* SNS 아이콘 */
 .footer-right .sns {
   display: flex;
-  gap: 50px; /* 요청한 아이콘 간격 */
+  gap: 50px;
+  /* 요청한 아이콘 간격 */
   font-size: 22px;
   margin-top: 69px;
 }

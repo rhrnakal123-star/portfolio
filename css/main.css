@@ -19,7 +19,6 @@ a {
 html,
 body {
   overflow-x: hidden;
-  /* 화면 너비 초과 시 가로 스크롤 제거 */
 }
 
 
@@ -31,47 +30,33 @@ body {
   transform: scale(1.05);
 }
 
-
-
-
-
-
-
-
-/* ✅ 카드 섹션 */
 .artist-section {
-  /* 💡 카드 섹션에 최대 너비(1224px)를 지정하여 중앙에 배치 */
   max-width: 1224px;
   width: 100%;
   margin: 150px auto;
-  /* 중앙 정렬 및 상단 여백 100px */
   position: relative;
   display: flex;
   justify-content: center;
-
 }
-
 
 .artist-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(20px, 4vw, 50px); /* 간격도 자연 반응형 */
+  gap: 30px;
   width: 100%;
-  max-width: 1224px;  /* 중앙 정렬용 max */
+  max-width: 1224px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-
 .artist-card {
-  flex: 1 1 calc(33.333% - clamp(20px, 4vw, 50px));
-  max-width: 348px;
+  flex: 0 0 clamp(260px, 28vw, 348px);
+  width: clamp(260px, 28vw, 348px);
   border-radius: 20px;
   background: #dfeaf9;
   transition: transform 0.35s ease;
 }
-
 
 .artist-card:hover {
   transform: translateY(10px);
@@ -89,32 +74,20 @@ body {
 }
 
 .artist-img {
-  overflow: hidden;
-  /* 이미지 내부에서 확대되게 함 (이미지 부모가 클립) */
+  width: 100%;
   border-radius: 20px 20px 0 0;
-  /* 카드 모서리와 동일하게 */
-  position: relative;
+  overflow: hidden;
 }
-
-
 
 .artist-img img {
   width: 100%;
-  height: 409px;
+  height: auto;
   object-fit: cover;
-  display: block;
-  transition: transform 0.35s ease;
-  transform-origin: center center;
-  /* 중앙을 기준으로 자연스럽게 확대 */
-  backface-visibility: hidden;
-  /* 픽셀 깜박임 방지 */
-  will-change: transform;
-  transform-style: preserve-3d;
+  aspect-ratio: 348 / 409;
 }
 
-
 .artist-card:hover .artist-img img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .artist-card::after {
@@ -127,12 +100,36 @@ body {
 }
 
 .artist-info {
-  padding: 15px 20px;
+  flex: 1;
+  padding: 18px 20px;
   transition: transform 0.38s cubic-bezier(.25, .8, .25, 1);
+  font-size: clamp(12px, 1.3vw, 16px);
+}
+
+.artist-info.active {
+  background: #e9f1ff;
+  border-radius: 14px;
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.06);
+  transform: scale(1.01);
+  transition: all 0.35s ease;
+}
+
+.artist-name,
+.activity,
+.activity-line {
+  word-break: keep-all;
+}
+
+.more.clicked {
+  transform: scale(0.92);
+  background: #8fb5f5;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: transform 0.2s ease;
 }
 
 .profile {
-  font-size: 15px;
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,7 +151,7 @@ body {
   line-height: 1;
   cursor: pointer;
   transition: all 0.3s ease;
-  white-space: nowrap; /* ✅ 줄바꿈 금지 */
+  white-space: nowrap;
 }
 
 .more:hover {
@@ -170,32 +167,42 @@ body {
 
 .artist-name {
   margin-top: 10px;
-  font-size: 25px;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.25;
   color: #111;
 }
 
-/* ✅ '가수' 부분 */
 .artist-name .role {
   font-weight: 700;
-  /* 볼드 */
   font-size: 25px;
   color: #111;
 }
 
-/* ✅ ': 남승민' 부분 */
 .artist-name .name {
   font-weight: 500;
-  /* 미디움 */
   font-size: 25px;
   color: #111;
 }
 
+.artist-name .role,
+.artist-name .name {
+  font-size: inherit;
+  font-weight: 600;
+}
 
+.artist-name,
+.activity,
+.profile {
+  white-space: normal !important;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+}
 
 .activity {
   margin-top: 10px;
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: clamp(12px, 1.4vw, 15px);
+  line-height: 1.35;
+  white-space: nowrap;
   color: #222;
 }
 
@@ -204,14 +211,10 @@ body {
 }
 
 .activity-line.indent {
-  margin-left: 72px;
-  /* "미스터트롯3" 글자 아래부터 시작 */
+  margin-left: clamp(30px, 6vw, 72px);
 }
 
-
-/* 정확하게 동작하는 화살표 규칙 — 붙여넣기 전 기존 .arrow 규칙 모두 삭제하세요 */
 .artist-section:first-of-type {
-  /* 더 안전한 선택자 (header 때문에 first-child가 아님) */
   position: relative;
 }
 
@@ -220,17 +223,13 @@ body {
   top: 50%;
   transform: translateY(-50%);
   width: 35px;
-  /* 요청한 버튼 크기 */
   height: 35px;
   line-height: 35px;
   text-align: center;
   font-size: 30px;
-  /* 기호 크기 */
   color: #111;
   background: #fff;
-  /* 배경 없애려면 transparent, 필요하면 #fff 등으로 변경 */
   border-radius: 50%;
-  /* 기호형이면 라운드 없애려면 0, 원형이면 50% */
   cursor: pointer;
   z-index: 20;
   transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease;
@@ -244,12 +243,10 @@ body {
   right: calc(50% - 556px - 17.5px - 52px);
 }
 
-/* hover: 살짝 확대/색상 변경 (기호만이므로 배경 투명 유지) */
 .artist-section:first-of-type .arrow:hover {
   transform: translateY(-50%) scale(1.18);
   color: #1e9dd8;
 }
-
 
 .arrow {
   transition: all 0.25s ease;
@@ -265,47 +262,27 @@ body {
   opacity: 0.7;
 }
 
-
-
-
 .video-section {
   width: 100%;
   max-width: 1224px;
   margin: 100px auto;
   position: relative;
-  padding: 0 20px;
-}
-
-/* 첫 번째 영상 제목 */
-.video-section:first-of-type .video-title {
-  position: absolute;
-  top: clamp(15px, 2.5vw, 30px);
-  left: clamp(15px, 2.5vw, 30px);
-  right: clamp(15px, 2.5vw, 30px);
-  font-size: clamp(16px, 1.64vw, 20px);
-}
-
-/* 두 번째 영상 제목 */
-.video-section:nth-of-type(2) .video-title {
-  position: absolute;
-  top: clamp(15px, 2.5vw, 30px);
-  left: clamp(15px, 2.5vw, 30px);
-  right: clamp(15px, 2.5vw, 30px);
-  font-size: clamp(14px, 1.47vw, 18px);
 }
 
 .video-title {
   position: absolute;
-  top: clamp(15px, 3vw, 30px);
-  left: clamp(15px, 3vw, 30px);
-  right: clamp(15px, 3vw, 30px);
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 500;
-  font-size: clamp(14px, 1.8vw, 20px);
+  top: 30px;
+  /* 컨테이너 높이의 비율로 위치 */
+  left: 60px;
+  /* 컨테이너 너비의 비율로 위치 */
+  font-size: clamp(12px, 1.5vw, 18px);
   color: #fff;
-  line-height: 1.3;
-  word-break: keep-all;
-  z-index: 2;
+  line-height: 1.2;
+  word-break: break-word;
+  max-width: 92%;
+  /* left + right 여백 합치고 최대 폭 지정 */
+  z-index: 5;
+  pointer-events: none;
 }
 
 
@@ -315,10 +292,7 @@ body {
   aspect-ratio: 1224 / 420;
   border-radius: 30px;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
+
 }
 
 .video-container img.thumbnail {
@@ -327,13 +301,11 @@ body {
   object-fit: cover;
 }
 
-
 .video-container img.thumbnail,
 .video-container iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* contain → cover로 변경 */
   display: block;
   border-radius: 30px;
 }
@@ -352,27 +324,29 @@ body {
   height: 100%;
   border: none;
   display: none;
-  /* 초기에는 숨김 */
   border-radius: 30px;
-  /* 💡 요청 라운드 */
   object-fit: contain;
-  /* 영상도 비율 유지 */
 }
 
 .video-container.playing iframe {
   display: block;
 }
 
+.artist-cards,
+.video-section {
+  padding-left: clamp(10px, 4vw, 20px);
+  padding-right: clamp(10px, 4vw, 20px);
+}
 
 .play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50px;
-  height: 36px;
+  width: clamp(30px, 4.5vw, 48px);
+  height: clamp(24px, 3.5vw, 34px);
   background: #ff0033;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -383,7 +357,7 @@ body {
 
 .play-btn .triangle {
   color: #fff;
-  font-size: 16px;
+  font-size: clamp(10px, 1.5vw, 16px);
 }
 
 .play-btn:hover {
@@ -391,23 +365,16 @@ body {
   background: #ff4d6d;
 }
 
-/* 영상 재생 중 */
 .video-container.playing .thumbnail,
 .video-container.playing .play-btn,
 .video-container.playing .video-title {
   display: none;
 }
 
-
-
-
-
 .play-btn:active {
   transform: translate(-50%, -50%) scale(0.95);
   box-shadow: 0 4px 8px rgba(255, 0, 51, 0.3);
 }
-
-
 
 .video-container:hover .play-btn {
   transform: translate(-50%, -50%) scale(1.2) rotate(5deg);
@@ -416,177 +383,109 @@ body {
   box-shadow: 0 8px 20px rgba(255, 0, 51, 0.5);
 }
 
+/* 화면이 1024px 이하일 때 → 카드 3개 → 2개 정렬 */
+@media (max-width: 1024px) {
+  .artist-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
 
+  .artist-img img {
+    height: 320px;
+  }
 
-.video-title {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  right: 30px;
-  /* 좌우 간격 유지 */
-  font-weight: 500;
-  font-size: 20px;
-  color: #fff;
-  letter-spacing: -0.3px;
-  line-height: 1.2;
-  max-width: calc(100% - 60px);
-  /* 좌우 여백 포함 */
-  word-break: break-word;
-  /* 줄바꿈 가능 */
-  display: block;
+  .artist-name {
+    font-size: 20px;
+  }
 }
 
-.video-container.playing .video-title {
-  display: none;
+/* ✅ 768px 이하 — 태블릿 */
+@media (max-width: 768px) {
+
+  .title-divider {
+    width: 90%;
+    margin-top: 80px;
+  }
+
+  .news-list-inner {
+    gap: 90px;
+    padding-bottom: 150px;
+  }
+
+  .item-text-wrap .name {
+    font-size: 22px;
+  }
+
+  .detail-line {
+    font-size: 15px;
+    line-height: 1.6;
+  }
 }
 
-
-
-
-
-@media (max-width: 900px) {
+/* ✅ 600px 이하 — 큰 모바일 */
+@media (max-width: 600px) {
   .video-container {
-    width: 100%;
-    /* 필요시만 조정 */
-    max-width: 1224px;
-    height: 420px;
-    /* 고정 */
+    border-radius: 30px;
+    /* 여전히 고정 */
   }
 
-  .video-container img.thumbnail,
-  .video-container iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  .video-title {
+    top: 20px;
+    /* 원하는 작은 화면 위치 */
+    left: 40px;
+    /* 원하는 작은 화면 위치 */
   }
 
-  .artist-cards .card {
-    width: calc(50% - 20px);
-    max-width: 260px;
+  .news-item {
+    gap: 25px;
   }
-}
 
-
-
-
-
-
-
-
-/* 반응형에서 자동으로 사라짐 */
-@media (max-width: 1100px) {
-  .artist-section:first-child .arrow {
-    display: none;
-  }
-}
-
-
-
-/* 아티스트 카드 반응형 */
-@media (max-width: 1224px) {
-  .artist-cards {
+  .item-img-wrap img {
     width: 100%;
     max-width: 100%;
-    gap: 30px;
-    /* 카드 간격 조정 */
-    justify-content: center;
-    padding: 0 20px;
+    border-radius: 6px;
   }
 
-
-}
-
-@media (max-width: 900px) {
-  .artist-img img {
-    height: auto;
-    aspect-ratio: 348 / 409;
+  .item-text-wrap {
+    max-width: 100%;
   }
 
-  .artist-cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    /* 줄바꿈 허용 */
-    gap: 35px;
+  .item-text-wrap .name {
+    font-size: 20px;
   }
 
-  .artist-card {
-    flex: 1 1 100%;
-    max-width: 420px;
-  }
-}
-
-
-
-/* 영상 반응형 */
-@media (max-width: 1224px) {
-  .video-section {
-    width: 100%;
-    padding: 0 20px;
-    height: auto;
-  }
-
-  .video-container {
-    height: 400px;
-  }
-
-  .video-title {
-    font-size: calc(20px * (100vw / 1224));
-    /* 화면 크기에 비례 */
-  }
-}
-
-@media (max-width: 900px) {
-  .video-section {
-    padding: 0 10px;
-  }
-
-  .video-container {
-    border-radius: 20px;
-  }
-
-  .video-title {
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    font-size: clamp(13px, 2.8vw, 18px);
-  }
-
-  .play-btn {
-    width: 40px;
-    height: 28px;
-  }
-}
-
-
-
-
-
-@media (max-width: 600px) {
-  .video-title {
-    font-size: clamp(12px, 3.5vw, 16px);
-  }
-}
-
-@media (max-width: 600px) {
-  .video-section:first-of-type .video-title {
-    font-size: 16px;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-  }
-
-  .video-section:nth-of-type(2) .video-title {
+  .detail-line {
     font-size: 14px;
-    top: 15px;
-    left: 15px;
-    right: 15px;
   }
 }
 
-@media (max-width: 500px) {
-  .artist-cards .card {
-    width: 100%;
-    max-width: 320px;
+/* ✅ 430px 이하 — 작은 모바일(아이폰 SE 등) */
+@media (max-width: 430px) {
+
+  .title-divider {
+    margin-top: 60px;
+  }
+
+  .news-list-inner {
+    gap: 70px;
+    padding-bottom: 120px;
+  }
+
+  .item-text-wrap .name {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .detail-line {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 380px) {
+  .video-title {
+    top: 15px;
+    left: 15px;
+    font-size: 13px;
   }
 }

@@ -1,130 +1,47 @@
 $(document).ready(function () {
 
-  // 햄버거 클릭 시 메뉴 toggle
-  $('.menu-icon').on('click', function() {
-    const isActive = $(this).hasClass('active');
-    $(this).toggleClass('active');   // 햄버거 ↔ X 전환
-    $('.menu ul').toggleClass('active');
+  /* ✅ 메뉴 열기/닫기 */
+  $(".menu-icon").on("click", function () {
+    $(".menu ul").addClass("active");
+  });
 
-    // 메뉴 표시 상태 강제 보정
-    if (!isActive) {
-      $('.menu ul').stop(true, true).slideDown(250).addClass('active');
-    } else {
-      $('.menu ul').stop(true, true).slideUp(250, function() {
-        $(this).removeClass('active');
-      });
+  $(".close-btn").on("click", function () {
+    $(".menu ul").removeClass("active");
+  });
+
+  $(".menu ul li a").on("click", function () {
+    if (window.innerWidth <= 899) {
+      $(".menu ul").removeClass("active");
     }
   });
 
-
-  // -----------------------------
-  // 💡 창 크기 변경 시 자동 초기화
-  // -----------------------------
-  function resizeMenu() {
-    const winWidth = $(window).width();
-
-    // ① 900px 초과 시 (데스크탑 모드)
-    if (winWidth > 900) {
-      $('.menu ul').stop(true, true).css({
-        display: 'flex'
-      }).removeClass('active');
-      $('.menu-icon').removeClass('active'); // ✅ X → 햄버거 복귀
-    } 
-    // ② 900px 이하 시 (모바일 모드)
-    else {
-      $('.menu ul').stop(true, true).css({
-        display: 'none'
-      }).removeClass('active');
-    }
-  }
-
-  $(window).on('resize', resizeMenu);
-  resizeMenu();
-
-
-  // -----------------------------
-  // 🎥 영상 클릭 시 재생
-  // -----------------------------
-  $('.video-container').on('click', function () {
-    var $container = $(this);
-    if ($container.hasClass('playing')) return;
-
-    var videoUrl = $container.data('video');
-    var iframe = $('<iframe>', {
-      src: videoUrl + '&autoplay=1',
-      allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
-      allowfullscreen: true,
-      title: 'YouTube video player',
-      frameborder: '0',
-      referrerpolicy: 'strict-origin-when-cross-origin'
-    });
-
-    $container.addClass('playing').append(iframe);
-    $container.find('iframe').css('display', 'block');
+  /* ✅ 아티스트 카드 - 더보기 버튼 */
+  $(document).on("click", ".more", function () {
+    const card = $(this).closest(".artist-info");
+    card.toggleClass("active");
+    $(this).addClass("clicked");
+    setTimeout(() => $(this).removeClass("clicked"), 200);
   });
 
+  /* ✅ 영상 재생 버튼 */
+  $(document).on("click", ".play-btn", function () {
+    const container = $(this).closest(".video-container");
+    const iframe = container.find("iframe");
+    let videoUrl = iframe.attr("data-src");
 
-  // -----------------------------
-  // 👥 아티스트 카드 슬라이드
-  // -----------------------------
-  $('.artist-section:first-child .arrow.left').on('click', function () {
-    $('.artist-cards').animate({ scrollLeft: '-=400' }, 400);
-  });
-  $('.artist-section:first-child .arrow.right').on('click', function () {
-    $('.artist-cards').animate({ scrollLeft: '+=400' }, 400);
-  });
+    // 자동재생 추가
+    const sep = videoUrl.includes("?") ? "&" : "?";
+    videoUrl = videoUrl + `${sep}autoplay=1`;
 
-
-  // -----------------------------
-  // 🔄 더보기 버튼 클릭 효과
-  // -----------------------------
-  $('.more').on('click', function () {
-    $(this).text('로딩중...')
-      .css({ background: '#3C1AB8', color: '#fff' })
-      .delay(500)
-      .queue(function (next) {
-        $(this).text('더보기').css({ background: '#ACCCF5', color: '#222' });
-        next();
-      });
+    container.addClass("playing");
+    iframe.attr("src", videoUrl);
   });
 
-  // -----------------------------
-  // ⬅️➡️ 화살표 클릭 애니메이션
-  // -----------------------------
-  $('.arrow').on('click', function () {
-    $(this).addClass('active');
-    setTimeout(() => $(this).removeClass('active'), 200);
+  /* ✅ 초기 로딩 시 iframe src 비워두기 (로딩속도 최적화) */
+  $(".video-container iframe").each(function () {
+    const iframe = $(this);
+    const url = iframe.attr("data-src");
+    if (url) iframe.removeAttr("src");
   });
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function () {
-
-  // menu hover opacity animation
-  $('.menu ul li a').hover(
-    function () {
-      $(this).stop().animate({ opacity: 0.7 }, 200);
-    },
-    function () {
-      $(this).stop().animate({ opacity: 1 }, 200);
-    }
-  );
 
 });

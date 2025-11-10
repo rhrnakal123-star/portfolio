@@ -89,7 +89,8 @@ body {
   justify-content: space-between;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   cursor: pointer;
-  flex-wrap: wrap; /* ✅ 너비 부족 시 자동 줄바꿈 */
+  flex-wrap: wrap;
+  /* ✅ 너비 부족 시 자동 줄바꿈 */
 }
 
 
@@ -104,8 +105,10 @@ body {
 
 .item-img-wrap img {
   width: 100%;
-  max-width: 500px; /* ✅ 최대 500px 유지, 줄어들 때는 자동 */
-  height: auto; /* ✅ 비율 유지하며 자동 줄어듦 */
+  max-width: 500px;
+  /* ✅ 최대 500px 유지, 줄어들 때는 자동 */
+  height: auto;
+  /* ✅ 비율 유지하며 자동 줄어듦 */
   object-fit: cover;
   transition: transform 0.35s ease;
   border-radius: 8px;
@@ -124,7 +127,8 @@ body {
   font-weight: 700;
   font-size: 25px;
   margin-bottom: 20px;
-  text-align: center; /* ← 이름 텍스트 중앙 */
+  text-align: center;
+  /* ← 이름 텍스트 중앙 */
 }
 
 .detail-line {
@@ -132,8 +136,10 @@ body {
   font-size: 17px;
   color: #333;
   line-height: 1.7;
-  margin-bottom: 20px; /* ← 문단 간 엔터 효과 */
-  text-align: center; /* ← 내용도 중앙 정렬 */
+  margin-bottom: 20px;
+  /* ← 문단 간 엔터 효과 */
+  text-align: center;
+  /* ← 내용도 중앙 정렬 */
 }
 
 

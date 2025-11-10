@@ -16,7 +16,7 @@
 
 
     <script src="js/main.js"></script>
-
+    <script src="js/common.js"></script>
 </head>
 
 <body>
@@ -29,21 +29,20 @@
             </div>
 
             <div class="header-right">
-                <nav class="menu">
+                <div class="menu">
                     <ul>
+                        <li class="close-btn">✕</li>
                         <li><a href="#">ARTIST</a></li>
                         <li><a href="#">ACTOR</a></li>
                         <li><a href="sub.html">NEWS</a></li>
-
                     </ul>
-                </nav>
+                </div>
 
                 <div class="menu-icon">
                     <span></span>
                     <span></span>
                 </div>
             </div>
-
         </div>
     </header>
 
@@ -94,10 +93,19 @@
     </section>
 
     <section class="video-section">
-        <div class="video-container" data-video="https://www.youtube.com/embed/SUmiSDKKsv8?si=XXqaR09mhixICCy-">
-            <img src="img/Rectangle 1.png" alt="영상 썸네일" class="thumbnail">
-            <p class="video-title">[MV] JEONG DONG WON(정동원) _ Heung!(흥!) (Feat. HAON(김하온))</p>
+        <div class="video-container">
+            <img class="thumbnail" src="img/Rectangle 1.png" alt="">
             <div class="play-btn"><span class="triangle">▶</span></div>
+
+
+            <iframe data-src="https://www.youtube.com/embed/SUmiSDKKsv8?si=vb0QVVgFbblkOltS" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="video-title">
+            [MV] JEONG DONG WON(정동원) _ Heung!(흥!) (Feat. HAON(김하온))
         </div>
     </section>
 
@@ -130,13 +138,23 @@
         </div>
     </section>
 
-
     <section class="video-section">
-        <div class="video-container" data-video="https://www.youtube.com/embed/wjqBhO1oQ0M?si=BrzSxfDlVGFQ0ipQ">
-            <img src="img/Rectangle 2.png" alt="영상 썸네일" class="thumbnail">
-            <p class="video-title">뮤지컬 [조선의 복서] 트레일러</p>
-            <div class="play-btn"><span class="triangle">▶</span></div>
+        <div class="video-container" data-video="https://www.youtube.com/embed/wjqBhO1oQ0M?si=gnE2iU_8knSmP7nA">
+
+            <img class="thumbnail" src="img/Rectangle 2.png" alt="">
+
+            <div class="play-btn">
+                <span class="triangle">▶</span>
+            </div>
+
+            <iframe data-src="https://www.youtube.com/embed/wjqBhO1oQ0M?si=gnE2iU_8knSmP7nA" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+
         </div>
+
+        <div class="video-title">뮤지컬 [조선의 복서] 트레일러</div>
     </section>
 
 
@@ -170,7 +188,7 @@
                 </div>
             </div>
     </footer>
-    <script src="js/common.js"></script>
+
 </body>
 
 </html>
