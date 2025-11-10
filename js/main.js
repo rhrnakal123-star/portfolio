@@ -29,6 +29,9 @@ $(document).ready(function () {
     const iframe = container.find("iframe");
     let videoUrl = iframe.attr("data-src");
 
+      container.closest(".video-section").addClass("playing");
+
+
     // 자동재생 추가
     const sep = videoUrl.includes("?") ? "&" : "?";
     videoUrl = videoUrl + `${sep}autoplay=1`;

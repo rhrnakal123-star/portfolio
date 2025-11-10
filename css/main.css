@@ -269,6 +269,11 @@ body {
   position: relative;
 }
 
+.video-section.playing .video-title {
+  display: none;
+}
+
+
 .video-title {
   position: absolute;
   top: 30px;
